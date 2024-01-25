@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ant-pro-chat .ant-pro-chat-input-area {
+  background-image: none;
+}
