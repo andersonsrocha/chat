@@ -14,7 +14,7 @@ const Layout: React.FC = () => {
           <Explorer />
         </div>
 
-        <div className="col-span-9 bg-[#282c34] rounded-r-xl">
+        <div className="col-span-9 bg-[#282c34] rounded-r-xl overflow-hidden">
           <Outlet />
         </div>
 

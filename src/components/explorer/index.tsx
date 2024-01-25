@@ -1,34 +1,28 @@
-"use client";
-
 import React from "react";
-import { IconDots } from "@tabler/icons-react";
+import { IconDots, IconFileTypeTsx } from "@tabler/icons-react";
 
-import { Folder } from "..";
+import { Document, Folder } from "..";
 
-type ComponentProps = {};
-
-const Explorer: React.FunctionComponent<ComponentProps> = () => {
-  return (
-    <div className="bg-[#21252b] flex-1 py-4">
-      <div className="flex flex-col gap-2 px-2">
-        <div className="flex justify-between items-center px-5 text-xs">
-          <div>EXPLORER</div>
-          <div className="p-1 rounded-md cursor-pointer hover:bg-[#282c34]">
-            <IconDots size={14} />
-          </div>
-        </div>
-
-        <Folder title="Open editors" isSub></Folder>
-
-        <Folder title="Chat" isSub className="flex flex-col gap-1">
-          <Folder title="public" icon />
-          <Folder title="src" icon>
-            <Folder title="chat" icon></Folder>
-          </Folder>
-        </Folder>
+const Explorer: React.FunctionComponent = () => (
+  <div className="bg-[#21252b] text-[#908caa] flex-1 py-2 px-4">
+    <div className="font-medium text-xs pl-2 flex items-center justify-between">
+      <div>EXPLORER</div>
+      <div className="p-1 rounded-md cursor-pointer hover:bg-[#282c34]">
+        <IconDots size={16} />
       </div>
     </div>
-  );
-};
+
+    <div className="mt-4 flex flex-col">
+      <Folder title="Open editors" isSub></Folder>
+
+      <Folder title="Chat" isSub defaultOpen className="flex flex-col">
+        <Folder title="Public" icon />
+        <Folder title="App" defaultOpen icon>
+          <Document title="chat.tsx" src="/pages/debug/index.tsx" icon={<IconFileTypeTsx size={16} />} />
+        </Folder>
+      </Folder>
+    </div>
+  </div>
+);
 
 export { Explorer };

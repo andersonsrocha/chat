@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./src/**/*.{html,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: "'Inter', sans-serif",
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

@@ -19,18 +19,22 @@ const Folder: React.FunctionComponent<ComponentProps> = ({ defaultOpen = false, 
 
   return (
     <Collapsible.Root open={open} onOpenChange={setOpen}>
-      <Collapsible.Trigger className="flex items-center gap-1">
+      <Collapsible.Trigger
+        className={clx("w-full py-1 flex items-center gap-1 hover:text-white", {
+          "hover:bg-white/5": rest.icon,
+        })}
+      >
         <motion.div animate={{ rotate: open ? 90 : 0 }} transition={{ type: "spring", duration: 0.5 }}>
-          <IconChevronRight size={isSub ? 16 : 14} />
+          <IconChevronRight size={16} />
         </motion.div>
 
         <div hidden={!rest.icon}>
-          <IconFolder size={14} />
+          <IconFolder size={16} />
         </div>
 
-        <div className={clx({ "font-bold uppercase text-xs": isSub, "text-sm": !isSub })}>{rest.title}</div>
+        <div className={clx({ "uppercase font-semibold text-xs": isSub, "text-sm": !isSub })}>{rest.title}</div>
       </Collapsible.Trigger>
-      <Collapsible.Content className={clx("px-5 py-2", rest.className)}>{rest.children}</Collapsible.Content>
+      <Collapsible.Content className={clx("px-5", rest.className)}>{rest.children}</Collapsible.Content>
     </Collapsible.Root>
   );
 };
