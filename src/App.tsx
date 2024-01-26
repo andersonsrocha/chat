@@ -13,7 +13,7 @@ const App: React.FC = () => {
     if (open.includes(path) && remove) {
       setOpen((_state) => _state.filter((p) => p !== path));
       setRead("");
-    } else if (!open.includes(path)) {
+    } else if (path && !open.includes(path)) {
       setOpen((_state) => _state.concat(path));
       const response = await fetch(`${import.meta.env.VITE_RAW_GITHUB_PATH}${path}`);
       setRead(await response.text());
@@ -22,7 +22,7 @@ const App: React.FC = () => {
 
   return (
     <AppProvider value={{ open, read, onOpenChaged: onOpenChanged }}>
-      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm, token: { colorPrimary: "#21252b" } }}>
+      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm, token: { colorPrimary: "#908caa" } }}>
         <ThemeProvider appearance="dark">
           <Router />
         </ThemeProvider>

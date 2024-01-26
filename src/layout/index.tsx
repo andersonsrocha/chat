@@ -1,6 +1,7 @@
+import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { Explorer, Sidebar } from "../components";
+import { Explorer, Menu, Sidebar } from "../components";
 
 const Layout: React.FC = () => {
   const { pathname } = useLocation();
@@ -14,8 +15,14 @@ const Layout: React.FC = () => {
           <Explorer />
         </div>
 
-        <div className="col-span-9 bg-[#282c34] rounded-r-xl overflow-hidden">
-          <Outlet />
+        <div className="col-span-9 bg-[#282c34] rounded-r-xl overflow-hidden flex flex-col">
+          <div className="w-full">
+            <Menu />
+          </div>
+
+          <div className="h-full flex-1">
+            <Outlet />
+          </div>
         </div>
 
         <div className="h-4 w-full bg-[#21252b] rounded-b-xl absolute bottom-0"></div>
